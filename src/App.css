@@ -1,0 +1,72 @@
+.App {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.962);
+  font-family:Avenir, "Century Gothic", sans-serif;
+  font-weight:100; 
+  font-style:normal;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.sidebar {
+  width: 320px;
+  min-width: 260px;
+  background: #181818;
+  color: white;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.among-us-img {
+  width: 80%;
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+
+.headerBtn {
+  margin-bottom: 20px;
+  margin-right: 0;
+  width: 90%;
+}
+
+.buttons-div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Remove or update .header if not used anymore */
+.header {
+  display: none;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: black;
+  color:white;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
