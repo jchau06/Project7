@@ -1,5 +1,4 @@
 import './App.css';
-import React from 'react';
 import { useRoutes, useParams } from 'react-router-dom'
 import ReadCrewmate from './pages/ReadCrewmate'
 import CreateCrewmate from './pages/CreateCrewmate'
@@ -7,34 +6,67 @@ import EditCrewmate from './pages/EditCrewmate'
 import { Link } from 'react-router-dom'
 import Home from './pages/Home'
 import CrewmateDetails from './pages/CrewmateDetails';
-
+import { supabase } from "./client";
+import { useState, useEffect } from 'react';
 
 const App = () => {
+
+  // const [crewmates, setCrewmates] = useState([]);
   
-  
+  // const fetchCrewmates = async () => {
+  //   const {data} = await supabase
+  //     .from('Crewmates')
+  //     .select();
 
-  const crewmates = [
-      {'id':'1', 
-      'name': 'John',
-      'color':'red', 
-      'speed': '3'},
-      {'id':'2', 
-      'name': 'Sam',
-      'color':'blue', 
-      'speed': '4'},
-  ]
+  //   // set state of posts
+  //   setCrewmates(data)
+  // }
 
-  function CrewmateDetailsWrapper() {
-    const { id } = useParams();
-    const crewmate = crewmates.find(c => c.id === id);
-    return <CrewmateDetails {...crewmate} />;
-  }
+  // useEffect(() => {
+  //   fetchCrewmates();
+  // }, []);
 
-  function CrewmateEditDetailsWrapper() {
-    const { id } = useParams();
-    const crewmate = crewmates.find(c => c.id === id);
-    return <EditCrewmate {...crewmate} />;
-  }
+  // const crewmates = [
+  //     {'id':'1', 
+  //     'name': 'John',
+  //     'color':'red', 
+  //     'speed': '3'},
+  //     {'id':'2', 
+  //     'name': 'Sam',
+  //     'color':'blue', 
+  //     'speed': '4'},
+  // ]
+
+const [crewmates, setCrewmates] = useState([]);
+
+const fetchCrewmates = async () => {
+  const { data, error } = await supabase.from('Crewmates').select();
+  console.log("Supabase data:", data);
+  console.log("Supabase error:", error);
+  setCrewmates(data || []);
+};
+
+
+useEffect(() => {
+  fetchCrewmates();
+}, []);
+
+
+function CrewmateDetailsWrapper() {
+  const { id } = useParams();
+  const crewmate = crewmates.find(c => c.id === Number(id));
+  return <CrewmateDetails {...crewmate} />;
+}
+
+function CrewmateEditDetailsWrapper() {
+  const { id } = useParams();
+  const crewmate = crewmates.find(c => c.id === Number(id));
+
+  if (!crewmate) return <p>Loading crewmate info...</p>;
+
+  return <EditCrewmate {...crewmate} />;
+}
+
 
 
   // Sets up routes
