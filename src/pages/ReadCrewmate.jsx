@@ -1,29 +1,30 @@
 import { useState, useEffect } from 'react'
 import Card from '../components/Card'
+import './ReadCrewmate.css'
 
 const ReadCrewmate = (props) => {
 
-    const [posts, setPosts] = useState([])
+    const [crewmates, setCrewmates] = useState([])
 
     useEffect(() => {
-        setPosts(props.data)
+        setCrewmates(props.data)
     }, [props])
     
     return (
         <div className="ReadPosts">
             {
-                posts && posts.length > 0 ?
-                [...posts]
+                crewmates && crewmates.length > 0 ?
+                [...crewmates]
                 .sort((a, b) => a.id - b.id)
-                .map((post,index) => 
+                .map((crewmate,index) => 
                     <Card 
-                        key={post.id}
-                        id={post.id} 
-                        title={post.title}
-                        author={post.author}
-                        description={post.description}
+                        key={crewmate.id}
+                        id={crewmate.id} 
+                        name={crewmate.name}
+                        color={crewmate.color}
+                        speed={crewmate.speed}
                     />
-                ) : <h2>{'No Challenges Yet 😞'}</h2>
+                ) : <h2>{'No Crewmates have been created yet.'}</h2>
             }
         </div>  
     )

@@ -50,33 +50,36 @@ const CreateCrewmate = () => {
             </h1>
             <img className='among-us-img' src="/among_us.png"/>
             <form className='create-crewmate-form' onSubmit={createCrewmate}>
-                <div className='input-div'>
-                    <label htmlFor="name">Name</label> <br />
-                    <input type="text" id="name" name="name" placeholder="Enter crewmate's name" onChange={handleChange} /><br />
-                    <br/>
-                </div>
+                
+                <div className='input-container'>
+                    <div className='input-div'>
+                        <label className='input-label' htmlFor="name">Name:</label> 
+                        <input type="text" id="name" name="name" placeholder="Enter crewmate's name" onChange={handleChange} />
+                        
+                    </div>
 
-                <div className='input-div'>
-                    <label htmlFor="speed">Speed (mph)</label><br />
-                    <input type="text" id="speed" name="speed" placeholder="Enter speed in mph" onChange={handleChange} /><br />
-                    <br/>
-                </div>
+                    <div className='input-div'>
+                        <label className='input-label' htmlFor="speed">Speed (mph):</label>
+                        <input type="text" id="speed" name="speed" placeholder="Enter speed in mph" onChange={handleChange} />
+                        
+                    </div>
 
-                <div className='input-div'>
-                    <label htmlFor="color">Color</label><br />
-                    <select id="color" name="color" onChange={handleChange}>
-                        <option value="">Select a color</option>
-                        <option value="red">Red</option>
-                        <option value="blue">Blue</option>
-                        <option value="green">Green</option>
-                        <option value="yellow">Yellow</option>
-                        <option value="pink">Pink</option>
-                        <option value="purple">Purple</option>
-                        <option value="orange">Orange</option>
-                        <option value="gray">Gray</option>
-                        <option value="black">Black</option>
-                    </select>
-                    <br/>
+                    <div className='input-div'>
+                        <label className='input-label' htmlFor="color">Color:</label>
+                        <select id="color" name="color" onChange={handleChange} className='input-select'>
+                            <option value="">Select a color</option>
+                            <option value="red">Red</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="pink">Pink</option>
+                            <option value="purple">Purple</option>
+                            <option value="orange">Orange</option>
+                            <option value="gray">Gray</option>
+                            <option value="black">Black</option>
+                        </select>
+                        
+                    </div>
                 </div>
                 
                 <input type="submit" value="Create Crewmate!" />

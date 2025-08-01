@@ -1,0 +1,33 @@
+.details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    background: #23272f;
+    border-radius: 16px;
+    padding: 2rem 3rem;
+    margin: 2rem auto;
+    max-width: 400px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+}
+
+.details-container h1,
+.details-container h2,
+.details-container h4,
+.details-container h5,
+.details-container h6 {
+    color: #fff;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+.speed-range {
+    font-style: italic;
+    color: #ffd700;
+    margin-top: 0.5rem;
+} 
+
+.edit-button {
+    margin-top: 1rem;
+}
