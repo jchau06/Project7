@@ -10,7 +10,7 @@ const ReadCrewmate = ({ data }) => {
       {
         data && data.length > 0 ?
         [...data]
-        .sort((a, b) => a.id - b.id)
+        .sort((a, b) => b.id - a.id)
         .map((crewmate) => 
             <Card 
                 key={crewmate.id}
